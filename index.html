@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StudentGPT - Biotechnology & Medical</title>
 
+<!-- ✅ Google AdSense Script (added, only once) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6606751521410432"
+     crossorigin="anonymous"></script>
+
 <style>
 :root {
   --bg: #000;
@@ -129,6 +133,18 @@ button.send, button.mic {
     </div>
   </div>
 
+  <!-- ✅ Ad below header (added) -->
+  <ins class="adsbygoogle"
+       style="display:block; text-align:center; margin:10px 0;"
+       data-ad-client="ca-pub-6606751521410432"
+       data-ad-slot="AD_SLOT_1"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
   <div class="chat-area" id="chat"></div>
 
   <div class="input-bar">
@@ -136,6 +152,26 @@ button.send, button.mic {
     <button class="mic" onclick="startMic()">🎤</button>
     <button class="send" onclick="send()">➤</button>
   </div>
+
+  <!-- ✅ Ad after user interaction (added) -->
+  <button onclick="showAd()" style="margin:10px;">Learn More</button>
+
+  <div id="interactionAd" style="display:none; margin:10px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6606751521410432"
+         data-ad-slot="AD_SLOT_2"
+         data-ad-format="auto"></ins>
+  </div>
+
+</div>
+
+<!-- ✅ Sticky bottom ad (added) -->
+<div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; text-align:center; z-index:9999;">
+  <ins class="adsbygoogle"
+       style="display:inline-block; width:100%; height:60px"
+       data-ad-client="ca-pub-6606751521410432"
+       data-ad-slot="AD_SLOT_3"></ins>
 </div>
 
 <script>
@@ -170,7 +206,6 @@ function send() {
   const userText = input.value.trim().toLowerCase();
   addBubble(input.value, "user");
 
-  // Check if question exists in predefined Q&A
   if (qa[userText]) {
     addBubble(qa[userText], "bot");
   } else {
@@ -211,6 +246,13 @@ input.addEventListener("input", () => {
   input.style.height = "auto";
   input.style.height = input.scrollHeight + "px";
 });
+
+// Show ad after interaction
+function showAd() {
+  document.getElementById("interactionAd").style.display = "block";
+  (adsbygoogle = window.adsbygoogle || []).push({});
+}
 </script>
+
 </body>
 </html>
